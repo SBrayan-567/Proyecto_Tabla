@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tabla Periódica 3D - Mi Proyecto</title>
-    <!-- Conectamos con el lenguaje de diseño -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica 3D - Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- El menú de botones del video -->
+    <!-- Menú de navegación inferior -->
     <div id="menu">
         <button id="table">TABLE</button>
         <button id="sphere">SPHERE</button>
@@ -16,20 +16,29 @@
         <button id="grid">GRID</button>
     </div>
 
-    <!-- El contenedor donde "dibujaremos" el 3D -->
+    <!-- Contenedor del mundo 3D -->
     <div id="container"></div>
 
-    <!-- Cargamos Three.js desde internet -->
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-            }
-        }
-    </script>
+    <!-- Panel Lateral de Información -->
+    <div id="info-panel" class="hidden">
+        <button id="close-panel">&times;</button>
+        <div id="panel-content">
+            <h1 id="panel-symbol">H</h1>
+            <h2 id="panel-name">Hydrogen</h2>
+            <hr>
+            <div class="data-row">
+                <strong>Atomic Mass:</strong> 
+                <span id="panel-mass">1.00794</span>
+            </div>
+            <div class="data-row">
+                <strong>Category:</strong> 
+                <span id="panel-type">Non-metal</span>
+            </div>
+            <p id="panel-desc">Explore las propiedades atómicas y la configuración electrónica de este elemento dentro de la estructura tridimensional.</p>
+        </div>
+    </div>
 
-    <!-- Conectamos con el lenguaje de programación -->
+    <!-- Script principal -->
     <script type="module" src="script.js"></script>
 </body>
 </html>
