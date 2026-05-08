@@ -16,13 +16,17 @@ body {
     position: relative;
 }
 
-/* Menú */
 #menu {
     position: absolute;
     bottom: 25px;
     width: 100%;
     text-align: center;
-    z-index: 100;
+    z-index: 10; /* Asegura que esté por encima del canvas */
+    pointer-events: auto; /* Permite clics */
+}
+
+button {
+    pointer-events: auto; /* Asegura que el botón sea cliqueable */
 }
 
 /* Botones futuristas */
@@ -204,4 +208,122 @@ button:hover {
     .element .symbol {
         font-size: 34px;
     }
+}
+
+.element.selected {
+    border: 3px solid rgba(255,255,255,1) !important;
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.9),
+        0 0 55px rgba(0,255,255,1),
+        0 0 90px rgba(0,255,255,0.9) !important;
+    z-index: 9999 !important;
+    transform: scale(1.12) !important;
+}
+
+.element.selected::after {
+    content: "SELECTED";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 4px;
+    background: rgba(0,255,255,0.25);
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px cyan;
+}
+/* --- PANEL LATERAL REFORMADO --- */
+#info-panel {
+    position: fixed; /* Cambiado de absolute a fixed para asegurar que cubra el viewport */
+    top: 0;
+    right: 0;
+    width: 320px; /* Un poco más ancho para mejor lectura */
+    height: 100vh;
+    background: rgba(2, 8, 18, 0.95); /* Un tono más oscuro para contraste */
+    backdrop-filter: blur(20px);
+    border-left: 2px solid rgba(0, 255, 255, 0.4);
+    
+    /* CAPA MÁXIMA: Esto garantiza que esté sobre el canvas de Three.js */
+    z-index: 9999 !important; 
+    
+    padding: 60px 25px 40px 25px;
+    box-sizing: border-box;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* PERMITIR CLICS: Muy importante para que el botón de cerrar funcione */
+    pointer-events: auto !important; 
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+#info-panel.hidden {
+    transform: translateX(100%); 
+    pointer-events: none !important; /* Desactiva clics cuando no se ve */
+}
+
+/* --- BOTÓN DE CERRAR LIMPIO --- */
+#close-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent !important; /* Forzamos quitar el estilo de tus otros botones */
+    border: none !important;
+    color: #00ffff;
+    font-size: 45px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: none !important;
+    padding: 0 !important;
+    z-index: 10001;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#close-panel:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* --- CONTENIDO DEL PANEL --- */
+#panel-symbol {
+    font-size: 90px;
+    font-weight: 900;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+    text-align: center;
+}
+
+#panel-name {
+    text-align: center;
+    font-size: 28px;
+    margin-top: -10px;
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#panel-content hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    margin: 30px 0;
+    width: 100%;
+}
+
+/* Estilos extra para los datos del panel */
+#panel-content p {
+    font-size: 16px;
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #ccd6f6;
+}
+
+#panel-content strong {
+    color: #00ffff;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
 }
