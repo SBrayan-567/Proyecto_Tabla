@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla Periódica 3D - Mi Proyecto</title>
+    <!-- Conectamos con el lenguaje de diseño -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- El menú de botones del video -->
+    <div id="menu">
+        <button id="table">TABLE</button>
+        <button id="sphere">SPHERE</button>
+        <button id="helix">HELIX</button>
+        <button id="grid">GRID</button>
+    </div>
+
+    <!-- El contenedor donde "dibujaremos" el 3D -->
+    <div id="container"></div>
+
+    <!-- Cargamos Three.js desde internet -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- Conectamos con el lenguaje de programación -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

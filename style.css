@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background:
+        radial-gradient(circle at top, rgba(20,40,90,0.35), transparent 45%),
+        radial-gradient(circle at bottom, rgba(0,255,200,0.08), transparent 35%),
+        linear-gradient(135deg, #02040a 0%, #050b18 40%, #000000 100%);
+    color: white;
+}
+
+/* Contenedor principal */
+#container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Menú */
+#menu {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+}
+
+/* Botones futuristas */
+button {
+    padding: 12px 24px;
+    margin: 0 8px;
+    border: 1px solid rgba(0,255,255,0.55);
+    background: rgba(0,20,35,0.55);
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(0,255,255,0.12);
+}
+
+button:hover {
+    background: rgba(0,255,255,0.18);
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.06);
+    box-shadow:
+        0 0 18px rgba(0,255,255,0.45),
+        0 0 35px rgba(0,180,255,0.18);
+}
+
+/* Tarjetas */
+.element {
+    width: 110px;
+    height: 150px;
+    position: relative;
+    border-radius: 18px;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border 0.3s ease;
+}
+
+/* Brillo superior */
+.element::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 180%;
+    height: 45%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.22),
+        rgba(255,255,255,0.02)
+    );
+    transform: rotate(-8deg);
+    pointer-events: none;
+}
+
+/* Hover */
+.element:hover {
+    transform: scale(1.08);
+    box-shadow:
+        0 0 18px rgba(255,255,255,0.22),
+        0 0 35px rgba(0,255,255,0.45);
+}
+
+/* Número atómico */
+.element .number {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.78);
+}
+
+/* Símbolo */
+.element .symbol {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    right: 0;
+    font-size: 42px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.97);
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.35),
+        0 0 18px currentColor;
+}
+
+/* Nombre y masa */
+.element .details {
+    position: absolute;
+    bottom: 14px;
+    left: 8px;
+    right: 8px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.82);
+}
+
+/* Categorías de color */
+.alkali {
+    background: rgba(255,70,70,0.32);
+    border: 1px solid rgba(255,120,120,0.65);
+    box-shadow: 0 0 14px rgba(255,70,70,0.28);
+}
+
+.alkaline {
+    background: rgba(255,145,60,0.30);
+    border: 1px solid rgba(255,170,80,0.65);
+    box-shadow: 0 0 14px rgba(255,145,60,0.28);
+}
+
+.transition-metal {
+    background: rgba(255,210,70,0.28);
+    border: 1px solid rgba(255,230,120,0.65);
+    box-shadow: 0 0 14px rgba(255,210,70,0.24);
+}
+
+.metalloid {
+    background: rgba(60,220,120,0.28);
+    border: 1px solid rgba(100,255,150,0.65);
+    box-shadow: 0 0 14px rgba(60,220,120,0.24);
+}
+
+.nonmetal {
+    background: rgba(70,170,255,0.28);
+    border: 1px solid rgba(110,200,255,0.65);
+    box-shadow: 0 0 14px rgba(70,170,255,0.24);
+}
+
+.halogen {
+    background: rgba(140,90,255,0.28);
+    border: 1px solid rgba(170,120,255,0.65);
+    box-shadow: 0 0 14px rgba(140,90,255,0.24);
+}
+
+.noble-gas {
+    background: rgba(255,80,220,0.28);
+    border: 1px solid rgba(255,130,230,0.65);
+    box-shadow: 0 0 14px rgba(255,80,220,0.24);
+}
+
+.lanthanide {
+    background: rgba(255,105,180,0.28);
+    border: 1px solid rgba(255,150,205,0.65);
+    box-shadow: 0 0 14px rgba(255,105,180,0.24);
+}
+
+.actinide {
+    background: rgba(0,220,255,0.28);
+    border: 1px solid rgba(120,240,255,0.65);
+    box-shadow: 0 0 14px rgba(0,220,255,0.24);
+}
+
+.post-transition {
+    background: rgba(180,180,255,0.25);
+    border: 1px solid rgba(210,210,255,0.55);
+    box-shadow: 0 0 14px rgba(180,180,255,0.18);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    button {
+        padding: 10px 14px;
+        font-size: 12px;
+        margin: 4px;
+    }
+
+    .element {
+        width: 90px;
+        height: 125px;
+    }
+
+    .element .symbol {
+        font-size: 34px;
+    }
+}
